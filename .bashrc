@@ -12,48 +12,6 @@ PS1='\w\[\033[31m\] $(__git_ps1 "(%s)")\n\[\033[01;34m\]$\[\033[00m\] '
 alias sudo='sudo '
 complete -cf sudo
 
-# https://raw.github.com/gma/bundler-exec/master/bundler-exec.sh
-within-bundled-project()
-{
-    local dir="$(pwd)"
-    while [ "$(dirname $dir)" != "/" ]; do
-        [ -f "$dir/Gemfile" ] && return
-        dir="$(dirname $dir)"
-    done
-    false
-}
-
-with_bundler()
-{
-    local bundler_installed=`which bundle > /dev/null 2>&1`
-    if $bundler_installed && within-bundled-project; then
-        echo bundle exec $@...
-        bundle exec $@
-    else
-        $@
-    fi
-}
-
-with_proxy()
-{
-    echo http_proxy=khoan:xxx@www-proxy.cse.unsw.edu.au:3128 $@...
-    http_proxy=http://khoan:cuTo00@www-proxy.cse.unsw.edu.au:3128 $@
-}
-
-BUNDLED_COMMANDS="${BUNDLED_COMMANDS:-
-cap
-padrino
-sidekiq
-berks
-foodcritic
-}"
-
-for CMD in $BUNDLED_COMMANDS; do
-    if [[ $CMD != "bundle" && $CMD != "gem" ]]; then
-        alias $CMD="with_bundler $CMD"
-    fi
-done
-
 alias es_run="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90.5/config/elasticsearch.yml"
 
 ###
@@ -70,10 +28,12 @@ alias es_run="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90
 # http://stackoverflow.com/questions/3777075/https-github-access
 #GIT_CURL_VERBOSE=1
 
-# Add heroku, RVM
-# to PATH for scripting
-PATH=/usr/local/heroku/bin:$PATH:$HOME/.rvm/bin
-export PATH
-
 #JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/"
 #export JAVA_HOME
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+
+export RBENV_ROOT=/usr/local/var/rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
