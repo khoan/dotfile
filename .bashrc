@@ -9,14 +9,24 @@ PS1='\w\[\033[31m\] $(__git_ps1 "(%s)")\n\[\033[01;34m\]$\[\033[00m\] '
 #alias gitx="open -a /Applications/GitX.app ."
 
 # http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html
+# http://linux.about.com/library/cmd/blcmdl1_builtin.htm
+# http://www.linuxjournal.com/content/more-using-bash-complete-command
 alias sudo='sudo '
 complete -cf sudo
 
-alias es_run="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90.5/config/elasticsearch.yml"
+# http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html
+alias go='cd ~/clients/'
+
+# https://twitter.com/judofyr/status/416535759207034881
+export RUBYGEMS_GEMDEPS=-
 
 ###
 # Goodies
 ###
+
+# https://medium.com/@mariociabarra/wifried-ios-8-wifi-performance-issues-3029a164ce94
+# sudo ifconfig awdl0 down
+# sudo ifconfig awdl0 up
 
 # http://leonid.shevtsov.me/en/how-to-insert-the-encoding-utf-8-directive-automatically-in-ruby-1-9-files
 #find . -iname '*.rb' -o -iname '*.rake' | \ # find all Ruby files
@@ -28,12 +38,11 @@ alias es_run="elasticsearch -f -D es.config=/usr/local/Cellar/elasticsearch/0.90
 # http://stackoverflow.com/questions/3777075/https-github-access
 #GIT_CURL_VERBOSE=1
 
-#JAVA_HOME="/Library/Internet Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/"
-#export JAVA_HOME
+# don't forget to set in ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
+JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
+export JAVA_HOME
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
+export PATH="/usr/local/bin:$PATH"
 
 export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi

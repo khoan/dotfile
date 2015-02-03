@@ -2,18 +2,23 @@
 
 set nocompatible
 syntax on
-set encoding=utf-8
+"set encoding=utf-8
 filetype indent plugin on
 
 "set nowrap
 "set nocursorline
-set foldmethod=manual
-set relativenumber
-set tabstop=2 shiftwidth=2
-set expandtab
-set smartindent
+"set foldmethod=manual
+"set confirm
+set autoindent softtabstop=2 expandtab shiftround shiftwidth=2
 set backspace=indent,eol,start
-set hidden
+set relativenumber hidden wildmenu lazyredraw
+
+augroup filetype_indent_width
+  autocmd!
+  autocmd FileType php  setlocal sts=4 sw=4
+augroup END
+
+"use elflord colorscheme for php
 
 " run rspec
 nnoremap <CR> :w<CR>:!spring rspec %<CR>
@@ -26,5 +31,5 @@ noremap! <Leader>v <Esc>:r !pbpaste<CR>A
  
 " regular expresion search
 "set regexpengine=1
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
