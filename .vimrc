@@ -1,9 +1,15 @@
 " :source $MYVIMRC
 
 set nocompatible
-syntax on
 "set encoding=utf-8
+let g:ruby_path = system('rbenv prefix')
 filetype indent plugin on
+
+augroup filetype_indent_width
+  autocmd!
+  autocmd FileType php   setlocal sts=4 sw=4
+augroup END
+syntax on
 
 "set nowrap
 "set nocursorline
@@ -13,16 +19,11 @@ set autoindent softtabstop=2 expandtab shiftround shiftwidth=2
 set backspace=indent,eol,start
 set relativenumber hidden wildmenu lazyredraw
 
-augroup filetype_indent_width
-  autocmd!
-  autocmd FileType php  setlocal sts=4 sw=4
-augroup END
-
 "use elflord colorscheme for php
 
 " run rspec
-nnoremap <CR> :w<CR>:!spring rspec %<CR>
-nnoremap <Leader>t :w<CR>:!spring rspec %:<C-R>=line('.')<CR><CR>
+"nnoremap <CR> :w<CR>:!spring rspec %<CR>
+"nnoremap <Leader>t :w<CR>:!spring rspec %:<C-R>=line('.')<CR><CR>
 
 " clipboard copy, paste
 vnoremap <Leader>c :w !pbcopy<CR>
