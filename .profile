@@ -1,5 +1,9 @@
 # https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
 
+
+
+eval "$(ry setup)"
+
 # precede command with space and it won't be added to history
 export HISTCONTROL=ignorespace
 
@@ -18,13 +22,10 @@ complete -cf sudo
 alias go='cd ~/clients/'
 
 # https://twitter.com/judofyr/status/416535759207034881
-export RUBYGEMS_GEMDEPS=-
+#export RUBYGEMS_GEMDEPS=-
 
 # don't forget to set in ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
 export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
-
-export RBENV_ROOT=/usr/local/var/rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ###
 # Goodies
