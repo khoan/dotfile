@@ -1,6 +1,8 @@
 # https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
 
 
+# workaround https://jira.atlassian.com/browse/SRCTREE-3172
+alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 
 eval "$(ry setup)"
 
@@ -25,11 +27,15 @@ alias go='cd ~/clients/'
 #export RUBYGEMS_GEMDEPS=-
 
 # don't forget to set in ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
-export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
+#export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
 
 ###
 # Goodies
 ###
+
+# http://hints.macworld.com/article.php?story=2003030107340199
+#alias h2d='printf "%d\n" ${1}'
+#alias d2h='printf "0x%x\n" ${1}'
 
 # https://github.com/rowanj/gitx/issues/210
 #alias gitx="open -a /Applications/GitX.app ."
