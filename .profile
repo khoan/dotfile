@@ -4,7 +4,11 @@
 # workaround https://jira.atlassian.com/browse/SRCTREE-3172
 alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 
-eval "$(ry setup)"
+which ry &>/dev/null && eval "$(ry setup)"
+# persist across updates
+export RY_RUBIES="/usr/local/var/ry/rubies"
+export CUSTOM_RUBY_VERSION=2.3.4
+
 
 # precede command with space and it won't be added to history
 export HISTCONTROL=ignorespace
@@ -27,7 +31,7 @@ alias go='cd ~/clients/'
 #export RUBYGEMS_GEMDEPS=-
 
 # don't forget to set in ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
-#export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
+export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
 
 ###
 # Goodies

@@ -1,0 +1,7 @@
+[core]
+	excludesfile = /Users/khoan/.gitignore_global
+[user]
+	name = Khoa Nguyen
+	email = 
+[push]
+	default = current
