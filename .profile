@@ -1,5 +1,7 @@
 # https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
 
+# disable SSL checking chrome
+alias chrome_insecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors &"
 
 # workaround https://jira.atlassian.com/browse/SRCTREE-3172
 alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
@@ -23,9 +25,6 @@ PS1='\w\[\033[31m\] $(__git_ps1 "(%s)")\n\[\033[01;34m\]$\[\033[00m\] '
 # http://www.linuxjournal.com/content/more-using-bash-complete-command
 alias sudo='sudo '
 complete -cf sudo
-
-# http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html
-alias go='cd ~/clients/'
 
 # https://twitter.com/judofyr/status/416535759207034881
 #export RUBYGEMS_GEMDEPS=-
