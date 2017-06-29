@@ -1,14 +1,21 @@
 # https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
 
+# ruby with ry and pkgsrc
+# 1. fix OpenSSL
+#    http://engineering.appfolio.com/appfolio-engineering/2016/6/17/configuring-ruby-on-macos-with-openssl
+#    http://mac-dev-env.patrickbougie.com/ruby/
+# 2. ry install https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz mri-2.4.1 --with-openssl-dir=/opt/pkg
+
+
 # disable SSL checking chrome
 alias chrome_insecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors &"
 
 # workaround https://jira.atlassian.com/browse/SRCTREE-3172
 alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
 
+export PATH="$HOME/.local/bin:/opt/pkg/bin:$PATH"
 which ry &>/dev/null && eval "$(ry setup)"
 # persist across updates
-export RY_RUBIES="/usr/local/var/ry/rubies"
 export CUSTOM_RUBY_VERSION=2.3.4
 
 
