@@ -1,5 +1,8 @@
 " :source $MYVIMRC
 
+" chuck swap files at ~/.vim/tmp
+set directory^=$HOME/.vim/tmp//
+
 set nocompatible
 "set encoding=utf-8
 let g:ruby_path = system('rbenv prefix')

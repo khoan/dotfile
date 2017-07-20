@@ -6,18 +6,17 @@
 #    http://mac-dev-env.patrickbougie.com/ruby/
 # 2. ry install https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz mri-2.4.1 --with-openssl-dir=/opt/pkg
 
+export PATH="$HOME/.local/bin:$PATH"
+which ry &>/dev/null && eval "$(ry setup)"
+
+alias issue=$HOME/clients/issue/app/src/bin/issue
+source $HOME/clients/issue/builder/src/etc/issue-completion.bash
 
 # disable SSL checking chrome
 alias chrome_insecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors &"
 
 # workaround https://jira.atlassian.com/browse/SRCTREE-3172
 alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
-
-export PATH="$HOME/.local/bin:/opt/pkg/bin:$PATH"
-which ry &>/dev/null && eval "$(ry setup)"
-# persist across updates
-export CUSTOM_RUBY_VERSION=2.3.4
-
 
 # precede command with space and it won't be added to history
 export HISTCONTROL=ignorespace
@@ -37,7 +36,7 @@ complete -cf sudo
 #export RUBYGEMS_GEMDEPS=-
 
 # don't forget to set in ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch.plist
-export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
+#export JAVA_HOME=/Library/Internet\ Plug\-Ins/JavaAppletPlugin.plugin/Contents/Home
 
 ###
 # Goodies
