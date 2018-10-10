@@ -10,21 +10,23 @@ export PATH="$HOME/.local/bin:$PATH"
 which ry &>/dev/null && eval "$(ry setup)"
 
 alias issue=$HOME/clients/issue/app/src/bin/issue
-source $HOME/clients/issue/builder/src/etc/issue-completion.bash
+TOOL=$HOME/clients/issue/builder/src/etc
+if [ -d $TOOL ]; then
+  source $TOOL/issue-completion.bash
+fi
 
 # disable SSL checking chrome
 alias chrome_insecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors &"
 
-# workaround https://jira.atlassian.com/browse/SRCTREE-3172
-alias stree='/Applications/SourceTree.app/Contents/Resources/stree'
-
 # precede command with space and it won't be added to history
 export HISTCONTROL=ignorespace
 
-XCODE_GIT=/Applications/Xcode.app/Contents/Developer/usr/share/git-core
-source $XCODE_GIT/git-completion.bash
-source $XCODE_GIT/git-prompt.sh
-PS1='\w\[\033[31m\] $(__git_ps1 "(%s)")\n\[\033[01;34m\]$\[\033[00m\] '
+TOOL=/Library/Developer/CommandLineTools/usr/share/git-core
+if [ -d $TOOL ]; then
+  source $TOOL/git-completion.bash
+  source $TOOL/git-prompt.sh
+  PS1='\w\[\033[31m\] $(__git_ps1 "(%s)")\n\[\033[01;34m\]$\[\033[00m\] '
+fi
 
 # http://www.webupd8.org/2010/03/how-to-autocomplete-commands-preceded.html
 # http://linux.about.com/library/cmd/blcmdl1_builtin.htm
