@@ -1,19 +1,26 @@
 # https://github.com/sstephenson/rbenv/wiki/Unix-shell-initialization
 
+# FIXME use asdf instead
+#
 # ruby with ry and pkgsrc
 # 1. fix OpenSSL
 #    http://engineering.appfolio.com/appfolio-engineering/2016/6/17/configuring-ruby-on-macos-with-openssl
 #    http://mac-dev-env.patrickbougie.com/ruby/
 # 2. ry install https://cache.ruby-lang.org/pub/ruby/2.4/ruby-2.4.1.tar.gz mri-2.4.1 --with-openssl-dir=/opt/pkg
-
 export PATH="$HOME/.local/bin:$PATH"
 which ry &>/dev/null && eval "$(ry setup)"
 
-alias issue=$HOME/clients/issue/app/src/bin/issue
 TOOL=$HOME/clients/issue/builder/src/etc
 if [ -d $TOOL ]; then
+  alias issue=$HOME/clients/issue/app/src/bin/issue
   source $TOOL/issue-completion.bash
 fi
+
+# python - https://github.com/pyenv/pyenv-installer
+export PATH="/Users/khoan/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 
 # disable SSL checking chrome
 alias chrome_insecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors &"
@@ -47,9 +54,6 @@ complete -cf sudo
 # http://hints.macworld.com/article.php?story=2003030107340199
 #alias h2d='printf "%d\n" ${1}'
 #alias d2h='printf "0x%x\n" ${1}'
-
-# https://github.com/rowanj/gitx/issues/210
-#alias gitx="open -a /Applications/GitX.app ."
 
 # https://medium.com/@mariociabarra/wifried-ios-8-wifi-performance-issues-3029a164ce94
 # sudo ifconfig awdl0 down
