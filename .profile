@@ -25,8 +25,10 @@ eval "$(pyenv virtualenv-init -)"
 # disable SSL checking chrome
 alias chrome_insecure="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --ignore-certificate-errors &"
 
-# precede command with space and it won't be added to history
-export HISTCONTROL=ignorespace
+# see bash (1)
+HISTCONTROL=ignoreboth
+shopt -s histappend
+PROMPT_COMMAND="history -a && history -n"
 
 TOOL=/Library/Developer/CommandLineTools/usr/share/git-core
 if [ -d $TOOL ]; then

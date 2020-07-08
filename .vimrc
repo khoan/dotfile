@@ -20,7 +20,7 @@ syntax on
 "set confirm
 set autoindent softtabstop=2 expandtab shiftround shiftwidth=2
 set backspace=indent,eol,start
-set relativenumber hidden wildmenu lazyredraw
+set number relativenumber hidden wildmenu lazyredraw
 
 "use elflord colorscheme for php
 
@@ -29,10 +29,12 @@ set relativenumber hidden wildmenu lazyredraw
 "nnoremap <Leader>t :w<CR>:!spring rspec %:<C-R>=line('.')<CR><CR>
 
 " clipboard copy, paste
+" <Leader> is \
 vnoremap <Leader>c :w !pbcopy<CR>
 noremap <Leader>v :r !pbpaste<CR>
 noremap! <Leader>v <Esc>:r !pbpaste<CR>A
  
+" :help /ordinary-atom
 " regular expresion search
 "set regexpengine=1
 "nnoremap / /\v
