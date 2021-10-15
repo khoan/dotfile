@@ -1,0 +1,6 @@
+# To edit
+# GIT_CONFIG=~/srv/company/.gitconfig git config user.email k@khoan.com
+[user]
+	email = k@khoan.com
+[core]
+	sshCommand = ssh -i ~/.ssh/company_id_ed25519

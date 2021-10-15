@@ -1,0 +1,4 @@
+[include]
+	path = /Users/khoan/lib/khoan/dotfile/.gitconfig
+[includeIf "gitdir:~/srv/company/"]
+	path = /Users/khoan/srv/company/.gitconfig
