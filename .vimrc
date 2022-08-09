@@ -5,7 +5,7 @@ set directory^=$HOME/.vim/tmp//
 
 set nocompatible
 "set encoding=utf-8
-let g:ruby_path = system('rbenv prefix')
+"let g:ruby_path = system('rbenv prefix')
 filetype indent plugin on
 
 augroup filetype_indent_width
@@ -13,6 +13,10 @@ augroup filetype_indent_width
   autocmd FileType php   setlocal sts=4 sw=4
 augroup END
 syntax on
+
+" fix slow Typescript syntax highlight
+" read more at https://jameschambers.co.uk/vim-typescript-slow
+set re=0
 
 "set nowrap
 "set nocursorline
