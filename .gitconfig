@@ -5,3 +5,5 @@
 	email = khoa@nguyen.com
 [push]
 	default = current
+#[remote "origin"]
+#        fetch = +refs/heads/*:refs/remotes/origin/*

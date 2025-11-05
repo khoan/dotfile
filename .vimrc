@@ -14,6 +14,11 @@ augroup filetype_indent_width
 augroup END
 syntax on
 
+" fix syntax highlighting
+" read more at https://vim.fandom.com/wiki/Fix_syntax_highlighting
+" syntax sync fromstart
+" syntax sync minlines=200
+
 " fix slow Typescript syntax highlight
 " read more at https://jameschambers.co.uk/vim-typescript-slow
 set re=0
